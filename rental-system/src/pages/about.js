@@ -47,25 +47,21 @@ export default function About() {
         <div className="col-md-6 wrap-about ftco-animate">
           <div className="heading-section heading-section-white pl-md-5">
             <span className="subheading">About us</span>
-            <h2 className="mb-4">Welcome to Carbook</h2>
+            <h2 className="mb-4">Welcome to Bike Rental</h2>
             <p>
-              A small river named Duden flows by their place and supplies it
-              with the necessary regelialia. It is a paradisematic country, in
-              which roasted parts of sentences fly into your mouth.
+            Our mission is to provide an eco-friendly and convenient way for people to explore 
+            their city or town on two wheels. With our electric bikes, you can cruise around 
+            town without worrying about traffic, parking, or emissions.
             </p>
             <p>
-              On her way she met a copy. The copy warned the Little Blind Text,
-              that where it came from it would have been rewritten a thousand
-              times and everything that was left from its origin would be the
-              word "and" and the Little Blind Text should turn around and return
-              to its own, safe country. A small river named Duden flows by their
-              place and supplies it with the necessary regelialia. It is a
-              paradisematic country, in which roasted parts of sentences fly
-              into your mouth.
+            Our electric bike rental system is perfect for tourists and locals alike. 
+            Whether you're exploring a new city or just running errands, our bikes offer a 
+            fun and efficient way to get around. We're committed to making sustainable 
+            transportation accessible to everyone, and we hope you'll join us on this journey.
             </p>
             <p>
-              <a href="#" className="btn btn-primary py-3 px-4">
-                Search Vehicle
+              <a href="/" className="btn btn-primary py-3 px-4">
+                Rent A Bike
               </a>
             </p>
           </div>
