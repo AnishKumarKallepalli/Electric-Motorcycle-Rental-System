@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Mercedes Bax",
+    "image": "images/bk1.jpg",
+    "price": 500
+  },
+  {
+    "id": 2,
+    "title": "Nitro Force",
+    "image": "images/bk2.jpg",
+    "price": 500
+  },
+  {
+    "id": 3,
+    "title": "Silver Stallion",
+    "image": "images/bk3.jpg",
+    "price": 500
+  },
+  {
+    "id": 4,
+    "title": "The Comet",
+    "image": "images/bk4.jpg",
+    "price": 500
+  },
+  {
+    "id": 5,
+    "title": "Black Panther",
+    "image": "images/bk5.jpg",
+    "price": 500
+  }
+]

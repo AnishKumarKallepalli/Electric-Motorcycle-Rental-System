@@ -1,5 +1,5 @@
 
-export default function Card(props){
+export default function Card({props}){
 
     return(
     <>
@@ -7,7 +7,7 @@ export default function Card(props){
           <div className="car-wrap rounded ftco-animate">
             <div
               className="img rounded d-flex align-items-end"
-              style={{ backgroundImage: "url(images/bk"+props._id+".jpg)" }}
+              style={{ backgroundImage: "url("+props.image+")" }}
             ></div>
             <div className="text">
               <h2 className="mb-0">
@@ -16,7 +16,7 @@ export default function Card(props){
               <div className="d-flex mb-3">
                 <span className="cat">Rent Starting at</span>
                 <p className="price ml-auto">
-                  {props.price} <span>/day</span>
+                  ${props.price} <span>/day</span>
                 </p>
               </div>
               <p className="d-flex mb-0 d-block">

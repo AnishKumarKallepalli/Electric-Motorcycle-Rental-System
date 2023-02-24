@@ -4,9 +4,10 @@ import { Inter } from '@next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Card from '@/components/Card'
+import data from '@/components/bikes.json';
 const inter = Inter({ subsets: ['latin'] })
 
-export default function About() {
+export default function Bikes({listofbikes}) {
   return (
     <>
       <Header></Header>
@@ -39,7 +40,8 @@ export default function About() {
         <section className="ftco-section bg-light">
           <div className="container">
             <div className="row">
-              <Card _id="1" title="Mercedes Bax" price="$500"></Card>
+            {listofbikes.map((bike) => (
+          <Card key={bike.id} props={bike} /> ))}
             </div>
 
           </div>
@@ -50,4 +52,12 @@ export default function About() {
       <Footer></Footer>
     </>
   )
+}
+function getBikes() {
+  return data;
+}
+
+export async function getStaticProps() {
+  const listofbikes = await getBikes();
+  return { props: { listofbikes } };
 }
