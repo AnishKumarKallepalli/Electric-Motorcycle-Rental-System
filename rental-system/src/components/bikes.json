@@ -3,30 +3,50 @@
     "id": 1,
     "title": "Mercedes Bax",
     "image": "images/bk1.jpg",
-    "price": 500
+    "price": 500,
+    "priceh": 9.99,
+    "priced": 49.99,
+    "pricem": 99.99,
+    "rating": 4
   },
   {
     "id": 2,
     "title": "Nitro Force",
     "image": "images/bk2.jpg",
-    "price": 500
+    "price": 500,
+    "priceh": 9.99,
+    "priced": 49.99,
+    "pricem": 99.99,
+    "rating": 4
   },
   {
     "id": 3,
     "title": "Silver Stallion",
     "image": "images/bk3.jpg",
-    "price": 500
+    "price": 500,
+    "priceh": 9.99,
+    "priced": 49.99,
+    "pricem": 99.99,
+    "rating": 4
   },
   {
     "id": 4,
     "title": "The Comet",
     "image": "images/bk4.jpg",
-    "price": 500
+    "price": 500,
+    "priceh": 9.99,
+    "priced": 49.99,
+    "pricem": 99.99,
+    "rating": 4
   },
   {
     "id": 5,
     "title": "Black Panther",
     "image": "images/bk5.jpg",
-    "price": 500
+    "price": 500,
+    "priceh": 9.99,
+    "priced": 49.99,
+    "pricem": 99.99,
+    "rating": 4
   }
 ]

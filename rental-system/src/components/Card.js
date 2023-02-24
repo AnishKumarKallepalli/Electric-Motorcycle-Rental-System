@@ -20,7 +20,7 @@ export default function Card({props}){
                 </p>
               </div>
               <p className="d-flex mb-0 d-block">
-                <a href="#" className="btn btn-primary py-2 mr-1">
+                <a href="/" className="btn btn-primary py-2 mr-1">
                   Book now
                 </a>{" "}
                 <a

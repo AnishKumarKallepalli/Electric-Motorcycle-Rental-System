@@ -8843,8 +8843,7 @@ h1, h2, h3, h4, h5,
         .pills .rating-wrap .star span:last-child {
           width: 32%; }
 
-.car-list {
-  overflow-x: scroll; }
+
 
 .table {
   min-width: 1000px !important;
@@ -8894,8 +8893,7 @@ h1, h2, h3, h4, h5,
       color: #01d28e; }
       .table tbody tr td.product-name .rated span:nth-child(1) {
         color: #000000; }
-      .table tbody tr td.product-name .rated span:last-child {
-        color: rgba(0, 0, 0, 0.1); }
+
     .table tbody tr td.price {
       text-align: center !important;
       background: rgba(0, 0, 0, 0.05);
