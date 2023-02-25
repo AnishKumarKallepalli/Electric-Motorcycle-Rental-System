@@ -5,6 +5,9 @@ const bike = new mongoose.Schema({
     type: String,
     required: true,
   },
+  rating: {
+    type: Number,
+  },
   age: {
     type: Number,
     // required: true,
@@ -17,8 +20,7 @@ const bike = new mongoose.Schema({
     required: true,
   },
   price: {
-    per_hour: Number,
-    per_day: Number,
+    type: Number,
   },
   image: {
     type: String,

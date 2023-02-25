@@ -68,7 +68,6 @@ async function updateBike(req, res) {
 const handler = async (req, res) => {
   switch (req.method) {
     case 'GET':
-    case 'POST':
       await getBike(req, res)
       break
     case 'DELETE':

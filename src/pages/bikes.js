@@ -7,7 +7,7 @@ import Card from '@/components/Card'
 import data from '@/components/bikes.json';
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Bikes({listofbikes}) {
+export default function Bikes({ listofbikes }) {
   return (
     <>
       <Header></Header>
@@ -40,8 +40,8 @@ export default function Bikes({listofbikes}) {
         <section className="ftco-section bg-light">
           <div className="container">
             <div className="row">
-            {listofbikes.map((bike) => (
-          <Card key={bike.id} props={bike} /> ))}
+              {listofbikes.map((bike) => (
+                <Card key={bike.id} props={bike} />))}
             </div>
 
           </div>
@@ -53,7 +53,10 @@ export default function Bikes({listofbikes}) {
     </>
   )
 }
-function getBikes() {
+async function getBikes() {
+  const res = await fetch("http://localhost:3000/api/bikes");
+  const data = await res.json();
+  console.log(data)
   return data;
 }
 
