@@ -1,7 +1,5 @@
 # Electric-Motorcycle-Rental-System
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Todo
 
 - Update location to use GPS coordinates instead of a string
@@ -45,6 +43,8 @@ Update the bike. Include all fields to be updated
 Delete the bike given the id
 
 ## Getting Started
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, `cd` into `rental-system`
 
