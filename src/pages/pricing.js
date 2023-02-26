@@ -5,9 +5,13 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Pricecard from '@/components/Pricecard'
 import data from '@/components/bikes.json';
+
+import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
+
+
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({listofbikes}) {
+export default withPageAuthRequired(function Home({listofbikes}) {
   return (
     <>
       <Header></Header>
@@ -69,7 +73,7 @@ export default function Home({listofbikes}) {
       <Footer></Footer>
     </>
   )
-}
+})
 function getBikes() {
     return data;
   }

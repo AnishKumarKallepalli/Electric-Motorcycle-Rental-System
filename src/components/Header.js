@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import Link from 'next/link'
+import Profile from './Profile';
+
 export default function Header() {
 	return (
 		<>
@@ -24,6 +25,8 @@ export default function Header() {
 							<li class="nav-item"><a href="/bikes" class="nav-link">Bikes</a></li>
 							<li class="nav-item"><a href="/about" class="nav-link">About</a></li>
 							<li class="nav-item"><a href="/dashboard" class="nav-link">Dashboard</a></li>
+							<li class="nav-item"><a href="/api/auth/login" class="nav-link">Login</a></li>
+							<li class="nav-item"><a href="/api/auth/logout" class="nav-link"><Profile /></a></li>
 						</ul>
 					</div>
 				</div>

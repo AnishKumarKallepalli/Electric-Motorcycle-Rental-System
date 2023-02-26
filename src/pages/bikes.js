@@ -4,7 +4,11 @@ import { Inter } from '@next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Card from '@/components/Card'
+import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
+
 import data from '@/components/bikes.json';
+
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Bikes({ listofbikes }) {
@@ -53,14 +57,23 @@ export default function Bikes({ listofbikes }) {
     </>
   )
 }
-async function getBikes() {
-  const res = await fetch("http://localhost:3000/api/bikes");
-  const data = await res.json();
-  console.log(data)
-  return data;
+// async function getBikes() {
+//   const res = await fetch("http://localhost:3000/api/bikes");
+//   const data = await res.json();
+//   console.log(data)
+//   return data;
+// }
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`http://localhost:3000/api/bikes`)
+  const listofbikes = await res.json()
+
+  // Pass data to the page via props
+  return { props: { listofbikes } }
 }
 
-export async function getStaticProps() {
-  const listofbikes = await getBikes();
-  return { props: { listofbikes } };
-}
+// export async function getStaticProps() {
+//   const listofbikes = await getBikes();
+//   return { props: { listofbikes } };
+// }
