@@ -4,7 +4,6 @@ import { Inter } from '@next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Card from '@/components/Card'
-import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
 import data from '@/components/bikes.json';
 
@@ -44,7 +43,7 @@ export default function Bikes({ listofbikes }) {
         <section className="ftco-section bg-light">
           <div className="container">
             <div className="row">
-              {listofbikes.map((bike) => (
+              {listofbikes?.map((bike) => (
                 <Card key={bike.id} props={bike} />))}
             </div>
 

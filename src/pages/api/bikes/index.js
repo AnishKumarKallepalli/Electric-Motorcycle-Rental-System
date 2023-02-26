@@ -1,6 +1,7 @@
 import connectDB from "../../../middleware/mongodb"
 import Bike from "../../../models/Bike"
 
+
 async function createBike(req, res) {
   try {
     delete req.body._id

@@ -2,6 +2,8 @@ import mongoose from "mongoose"
 import connectDB from "../../../middleware/mongodb"
 import Bike from "../../../models/Bike"
 
+
+
 async function getBike(req, res) {
   try {
     const { id } = req.query
