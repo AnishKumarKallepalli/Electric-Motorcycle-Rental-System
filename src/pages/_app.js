@@ -11,10 +11,13 @@ import "@/styles/flaticon.css";
 import "@/styles/icomoon.css";
 import "@/styles/style.css";
 import Script from "next/script";
+import { useRouter } from 'next/router'
 
 import {UserProvider} from "@auth0/nextjs-auth0/client";
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter()
+
   return (
     
       <>
@@ -66,7 +69,7 @@ export default function App({ Component, pageProps }) {
       <Script src="js/google-map.js" strategy="beforeInteractive"></Script>
       <Script src="js/main.js" strategy="beforeInteractive"></Script>
       <UserProvider>
-        <Component {...pageProps} />
+        <Component {...pageProps} key={router.asPath}  />
       </UserProvider>
       </>
   );

@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import Profile from './Profile';
+import Link from 'next/link';
 import { useUser } from '@auth0/nextjs-auth0/client';
 
 
 export default function Header() {
-	const { user, error, isLoading } = useUser();
+	const { user } = useUser();
 
 	return (
 		<>
@@ -15,27 +16,27 @@ export default function Header() {
 				<link rel="icon" href="/bike.png" />
 				<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet" />
 			</Head>
-			<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-				<div class="container">
-					<a class="navbar-brand" href="/">Bike<span> Rental</span></a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="oi oi-menu"></span> Menu
+			<nav className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+				<div className="container">
+					<a className="navbar-brand" href="/">Bike<span> Rental</span></a>
+					<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+						<span className="oi oi-menu"></span> Menu
 					</button>
 
-					<div class="collapse navbar-collapse" id="ftco-nav">
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+					<div className="collapse navbar-collapse" id="ftco-nav">
+						<ul className="navbar-nav ml-auto">
+							<li className="nav-item"><a href="/" className="nav-link">Home</a></li>
 							{
 								user && <>
-									<li class="nav-item"><a href="/pricing" class="nav-link">Pricing</a></li>
-									<li class="nav-item"><a href="/bikes" class="nav-link">Bikes</a></li>
-									<li class="nav-item"><a href="/dashboard" class="nav-link">Dashboard</a></li>
+									<li className="nav-item"><a href="/pricing" className="nav-link">Pricing</a></li>
+									<li className="nav-item"><a href="/bikes" passHref={true} className="nav-link">Bikes</a></li>
+									<li className="nav-item"><a href="/dashboard" className="nav-link">Dashboard</a></li>
 								</>
 
 							}
-							<li class="nav-item"><a href="/about" class="nav-link">About</a></li>
-							<li class="nav-item"><a href="/api/auth/login" class="nav-link">Login</a></li>
-							{user && <li class="nav-item"><a href="/api/auth/logout" class="nav-link"><Profile /></a></li>}
+							<li className="nav-item"><a href="/about" className="nav-link">About</a></li>
+							<li className="nav-item"><a href="/api/auth/login" className="nav-link">Login</a></li>
+							{user && <li className="nav-item"><a href="/api/auth/logout" className="nav-link"><Profile /></a></li>}
 						</ul>
 					</div>
 				</div>

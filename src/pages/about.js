@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Link from 'next/link'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import Header from '@/components/Header'
@@ -24,9 +24,9 @@ export default function About() {
         <div className="col-md-9 ftco-animate pb-5">
           <p className="breadcrumbs">
             <span className="mr-2">
-              <a href="index.html">
+             <Link href="/">
                 Home <i className="ion-ios-arrow-forward" />
-              </a>
+                </Link>
             </span>{" "}
             <span>
               About us <i className="ion-ios-arrow-forward" />

@@ -63,7 +63,7 @@ export default function Bikes({ listofbikes }) {
 //   return data;
 // }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Fetch data from external API
   const res = await fetch(`http://localhost:3000/api/bikes`)
   const listofbikes = await res.json()
