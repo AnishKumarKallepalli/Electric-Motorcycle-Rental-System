@@ -10,9 +10,6 @@ export default function Profile() {
     
   return (
     <>
-      <div className="bg-black py-6 sm:py-8 lg:py-12">
-        <Header></Header>
-      </div>
       <div className="bg-white py-6 sm:py-8 lg:py-12">
         <div className="max-w-screen-xl px-4 md:px-8 mx-auto">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
@@ -26,9 +23,9 @@ export default function Profile() {
 
             <div className="lg:col-span-2">
               <div className="border-b pb-4 md:pb-6">
-                <h2 className="text-gray-800 text-lg lg:text-xl font-bold">
+                <h1 className="text-gray-800 text-xl lg:text-xl font-bold">
                   Previous Bookings
-                </h2>
+                </h1>
               </div>
 
               <div className="divide-y">

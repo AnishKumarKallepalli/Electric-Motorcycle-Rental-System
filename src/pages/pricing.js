@@ -12,9 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({listofbikes}) {
   return (
-    <>
-      <Header></Header>
-      
+    <>      
       <>
   <section
     className="hero-wrap hero-wrap-2 js-fullheight"

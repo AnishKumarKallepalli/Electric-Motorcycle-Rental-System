@@ -15,6 +15,7 @@ import { useRouter } from 'next/router'
 import "@/styles/global.css"
 
 import {UserProvider} from "@auth0/nextjs-auth0/client";
+import Header from "@/components/Header";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
@@ -70,6 +71,7 @@ export default function App({ Component, pageProps }) {
       <Script src="js/google-map.js" strategy="beforeInteractive"></Script>
       <Script src="js/main.js" strategy="beforeInteractive"></Script>
       <UserProvider>
+      <div className="bg-black py-6 sm:py-8 lg:py-12"><Header /></div>
         <Component {...pageProps} key={router.asPath}  />
       </UserProvider>
       </>

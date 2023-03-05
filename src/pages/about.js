@@ -9,10 +9,6 @@ const inter = Inter({ subsets: ['latin'] })
 export default function About() {
   return (
     <>
-      <Header></Header>
-
- 
-
   <section
     className="hero-wrap hero-wrap-2 js-fullheight"
     style={{ backgroundImage: 'url("images/bg_3.jpg")' }}

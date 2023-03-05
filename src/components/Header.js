@@ -67,23 +67,35 @@ export default function Header() {
                   About
                 </a>
               </li>
-              {
-				user ? <li className="nav-item">
-                <a href="/api/auth/logout" className="nav-link">
-                  Logout
-                </a>
-              </li> : <li className="nav-item">
-                <a href="/api/auth/login" className="nav-link">
-                  Login
-                </a>
-              </li>
-			  }
+              {user ? (
+                <li className="nav-item">
+                  <a href="/api/auth/logout" className="nav-link">
+                    Logout
+                  </a>
+                </li>
+              ) : (
+                <li className="nav-item">
+                  <a href="/api/auth/login" className="nav-link">
+                    Login
+                  </a>
+                </li>
+              )}
 
-				{user && <li className="nav-item">
-                <a href="/api/auth/logout" className="nav-link">
-                  Profile
-                </a>
-              </li>}
+              {user?.email === "f20191435@hyderabad.bits-pilani.ac.in" && (
+                <li className="nav-item">
+                  <a href="/admin" className="nav-link">
+                    Admin Panel
+                  </a>
+                </li>
+              )}
+
+              {user && (
+                <li className="nav-item">
+                  <a href="/profile" className="nav-link">
+                    Profile
+                  </a>
+                </li>
+              )}
 
               {user && (
                 <li className="nav-item">
