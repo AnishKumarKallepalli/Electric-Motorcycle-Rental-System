@@ -12,6 +12,7 @@ import "@/styles/icomoon.css";
 import "@/styles/style.css";
 import Script from "next/script";
 import { useRouter } from 'next/router'
+import "@/styles/global.css"
 
 import {UserProvider} from "@auth0/nextjs-auth0/client";
 

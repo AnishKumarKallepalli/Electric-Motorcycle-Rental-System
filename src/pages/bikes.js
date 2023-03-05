@@ -7,6 +7,8 @@ import Card from '@/components/Card'
 
 import data from '@/components/bikes.json';
 
+import { Fragment } from "react"
+
 
 const inter = Inter({ subsets: ['latin'] })
 
