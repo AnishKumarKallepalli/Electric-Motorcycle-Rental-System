@@ -1,4 +1,4 @@
-import BikeRating from "@/components/BikeRating";
+import BikeRating from "@/components/Profile/BikeRating";
 import Header from "@/components/Header";
 import UserPhoto from "@/components/UserPhoto";
 import { useUser } from "@auth0/nextjs-auth0/client";

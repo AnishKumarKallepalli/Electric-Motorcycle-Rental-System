@@ -1,7 +1,15 @@
 import Head from "next/head";
-import Profile from "./Profile";
+import Profile from "./Profile/Profile";
 import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0/client";
+
+const adminEmails = [
+  "f20191435@hyderabad.bits-pilani.ac.in",
+  "f20200284@hyderabad.bits-pilani.ac.in",
+  "f20200153@hyderabad.bits-pilani.ac.in",
+  "f20200173@hyderabad.bits-pilani.ac.in",
+  "f20200282@hyderabad.bits-pilani.ac.in"
+]
 
 export default function Header() {
   const { user } = useUser();
@@ -56,18 +64,35 @@ export default function Header() {
                   Bikes
                 </a>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a href="/dashboard" className="nav-link">
                   Dashboard
                 </a>
-              </li>
+              </li> */}
 
               <li className="nav-item">
                 <a href="/about" className="nav-link">
                   About
                 </a>
               </li>
-              {user ? (
+             
+
+              {adminEmails.includes(user?.email) && (
+                <li className="nav-item">
+                  <a href="/admin/bikes" className="nav-link">
+                    Manage Bikes
+                  </a>
+                </li>
+              )}
+
+              {/* {user && (
+                <li className="nav-item">
+                  <a href="/profile" className="nav-link">
+                    Profile
+                  </a>
+                </li>
+              )} */}
+             {user ? (
                 <li className="nav-item">
                   <a href="/api/auth/logout" className="nav-link">
                     Logout
@@ -80,23 +105,6 @@ export default function Header() {
                   </a>
                 </li>
               )}
-
-              {user?.email === "f20191435@hyderabad.bits-pilani.ac.in" && (
-                <li className="nav-item">
-                  <a href="/admin" className="nav-link">
-                    Admin Panel
-                  </a>
-                </li>
-              )}
-
-              {user && (
-                <li className="nav-item">
-                  <a href="/profile" className="nav-link">
-                    Profile
-                  </a>
-                </li>
-              )}
-
               {user && (
                 <li className="nav-item">
                   <a href="/profile" className="nav-link">
