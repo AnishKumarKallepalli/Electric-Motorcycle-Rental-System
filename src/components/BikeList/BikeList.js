@@ -66,7 +66,7 @@ export default function BikeList({listofbikes}) {
                 costOfBike={bike.price}
                 mileage={bike.mileage}
                 bikeImg={bike.image}
-                costPerHour={bike.costPerHour ? bike.costPerHour : bike.costOfBike}
+                costPerHour={bike.pricePerHour ? bike.pricePerHour : bike.costOfBike}
                 charge={bike.charge}
                 available={bike.available}
               />
