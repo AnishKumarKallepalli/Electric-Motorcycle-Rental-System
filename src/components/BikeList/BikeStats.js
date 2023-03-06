@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { BASE_URL } from "@/constants";
 
 export default function BikeStats({
@@ -12,14 +13,21 @@ export default function BikeStats({
   costPerHour,
   available,
 }) {
-  const formDeleteHandler = () => {
+  const router = useRouter();
+
+  const formDeleteHandler = (e) => {
     console.log(id)
+  
     fetch(`${BASE_URL}/api/bikes/${id}`, {
       method: 'DELETE',
     })
     .then(res => res.text()) // or res.json()
-    .then(res => console.log(res))
+    .then(res => {
+      alert(`Bike: ${bikeName} deleted successfully`)
+      router.refresh();
+    })
   }
+  console.log(bikeImg)
   return (
     <div>
       <div className="flex flex-wrap border rounded-lg overflow-hidden gap-x-4 sm:gap-y-4 lg:gap-6">
@@ -28,7 +36,7 @@ export default function BikeStats({
           className="group w-32 sm:w-40 h-48 sm:h-56 block bg-gray-100 overflow-hidden relative"
         >
           <Image
-            src={"/" + bikeImg}
+            src={bikeImg[0] === 'i' ? '/' + bikeImg : bikeImg}
             loading="lazy"
             height={100}
             width={100}

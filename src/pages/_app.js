@@ -70,6 +70,10 @@ export default function App({ Component, pageProps }) {
       ></Script>
       <Script src="js/google-map.js" strategy="beforeInteractive"></Script>
       <Script src="js/main.js" strategy="beforeInteractive"></Script>
+      <Script
+          src="https://widget.Cloudinary.com/v2.0/global/all.js"
+          type="text/javascript"
+        ></Script>
       <UserProvider>
       <div className="bg-black py-6 sm:py-8 lg:py-12"><Header /></div>
         <Component {...pageProps} key={router.asPath}  />

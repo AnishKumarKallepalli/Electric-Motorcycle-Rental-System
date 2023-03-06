@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import FormInput from "./FormInput";
 import { BASE_URL } from "@/constants";
+import Head from "next/head";
+import { redirect } from "next/dist/server/api-utils";
 
 const formInputs = [
   "name",
@@ -14,9 +16,33 @@ const formInputs = [
   "charge"
 ];
 export default function ModalForm() {
+
+  const [imagePublicId, setImagePublicId] = useState();
+
+  const cloudinaryWidget = () => {
+    // create the widget
+    const widget = window.cloudinary.createUploadWidget(
+      {
+        cloudName: "dw9w4uzxk",
+        uploadPreset: "dlciw07h" 
+      },
+      (error, result) => {
+        if (
+          result.event === "success" &&
+          result.info.resource_type === "image"
+        ) {
+          console.log(result.info);
+          setImagePublicId(result.info);
+        }
+      }
+    );
+    widget.open(); // open up the widget after creation
+  };
+
   const submitHandler = (e) => {
-      e.preventDefault();
+    redirect(`${BASE_URL}/admin/bikes`)
   }
+
   return (
     <div>
       <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -40,8 +66,8 @@ export default function ModalForm() {
           >
             {formInputs.map((name, idx) => (
               <FormInput content={name} key={idx} />
-            ))}
-            <FormInput content={"image"} isFile={true} />
+              ))}
+            <FormInput cloudinary={cloudinaryWidget} value={imagePublicId?.url} content={"image"}/>
             <div className="sm:col-span-2">
               <label
                 for="additionalInfo"
