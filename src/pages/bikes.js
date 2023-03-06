@@ -1,14 +1,9 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Card from '@/components/Card'
 
-import data from '@/components/bikes.json';
-
-import { Fragment } from "react"
-
+import { BASE_URL } from '@/constants'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -46,7 +41,7 @@ export default function Bikes({ listofbikes }) {
           <div className="container">
             <div className="row">
               {listofbikes?.map((bike) => (
-                <Card key={bike.id} props={bike} />))}
+                <Card key={bike._id} props={bike} />))}
             </div>
 
           </div>
@@ -58,23 +53,11 @@ export default function Bikes({ listofbikes }) {
     </>
   )
 }
-// async function getBikes() {
-//   const res = await fetch("http://localhost:3000/api/bikes");
-//   const data = await res.json();
-//   console.log(data)
-//   return data;
-// }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Fetch data from external API
-  const res = await fetch(`http://localhost:3000/api/bikes`)
+  const res = await fetch(`${BASE_URL}/api/bikes`)
   const listofbikes = await res.json()
-
   // Pass data to the page via props
   return { props: { listofbikes } }
 }
-
-// export async function getStaticProps() {
-//   const listofbikes = await getBikes();
-//   return { props: { listofbikes } };
-// }

@@ -21,16 +21,26 @@ const bike = new mongoose.Schema({
   },
   price: {
     type: Number,
+    required: true
+  },
+  pricePerHour: {
+    type: Number,
+    required: false,
+
   },
   image: {
     type: String,
     required: true,
   },
   available: {
-    type: Boolean,
+    type: String,
     default: true,
   },
   location: {
+    type: String,
+    required: true,
+  },
+  additionalInfo: {
     type: String,
     required: true,
   },

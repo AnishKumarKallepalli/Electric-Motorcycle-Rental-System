@@ -3,7 +3,7 @@ import BikeStats from "./BikeStats";
 import Earnings from "./Earnings";
 import AddBike from "../AddBikeForm/AddBike";
 import Modal from "../Modal";
-
+import { Kristi } from "@next/font/google";
 const bikeData = [
   {
     bikeName: "Ola Electric",
@@ -37,11 +37,8 @@ const bikeData = [
   },
 ];
 
-export default function BikeList() {
+export default function BikeList({listofbikes}) {
   const [open, setOpen] = useState(false)
-  // const handleOpen = () => {
-  //   setOpen(true);
-  // }
   return (
     <>
       <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -60,16 +57,18 @@ export default function BikeList() {
             </button>
             </div>
 
-            {bikeData.map((bike, key) => (
+            {listofbikes?.map((bike, key) => (
               <BikeStats
-                key={key}
-                bikeName={bike.bikeName}
+                key={bike._id}
+                id={bike._id}
+                bikeName={bike.name}
                 location={bike.location}
-                color={bike.color}
-                costOfBike={bike.costOfBike}
+                costOfBike={bike.price}
                 mileage={bike.mileage}
-                bikeImg={bike.bikeImg}
-                costPerHour={bike.costPerHour}
+                bikeImg={bike.image}
+                costPerHour={bike.price}
+                charge={bike.charge}
+                available={bike.available}
               />
             ))}
             <Modal open={open} setOpen={setOpen}/>
@@ -83,3 +82,5 @@ export default function BikeList() {
     </>
   );
 }
+
+
