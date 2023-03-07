@@ -1,9 +1,7 @@
 import React, {useState} from "react";
 import BikeStats from "./BikeStats";
 import Earnings from "./Earnings";
-import AddBike from "../AddBikeForm/AddBike";
 import Modal from "../Modal";
-import { Kristi } from "@next/font/google";
 const bikeData = [
   {
     bikeName: "Ola Electric",
