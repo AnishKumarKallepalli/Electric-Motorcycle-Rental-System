@@ -50,7 +50,8 @@ export default function LocationPage({ locations }) {
         start_time: new Date(time),
         start_location: location.address,
         cost: location.bike.price,
-      }
+      },
+      wallet_balance: user.wallet_balance - location.bike.price
     }).then((res) => {
       console.log("rented bike", res);
       router.push('/profile')

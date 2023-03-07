@@ -26,7 +26,6 @@ const bike = new mongoose.Schema({
   pricePerHour: {
     type: Number,
     required: false,
-
   },
   image: {
     type: String,

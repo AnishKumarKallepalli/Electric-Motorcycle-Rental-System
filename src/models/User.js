@@ -12,6 +12,7 @@ const user = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   password: {
     type: String,
@@ -28,6 +29,10 @@ const user = new mongoose.Schema({
     start_location: String,
     cost: Number,
   },
+  wallet_balance: {
+    type: Number,
+    default: 500,
+  }
 })
 
 export default mongoose.models.User || mongoose.model("User", user)

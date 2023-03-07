@@ -1,11 +1,19 @@
 import connectDB from "../../../middleware/mongodb"
 import Bike from "../../../models/Bike"
+import Location from "../../../models/Location"
 
 
 async function createBike(req, res) {
+  console.log("Create bike req", req.body)
   try {
     delete req.body._id
     const bike = await Bike.create(req.body)
+    if (req.body.location) {
+      const location = await Location.create({
+        address: req.body.location,
+        bike: bike._id
+      })
+    }
     res.status(201).json(bike)
   } catch (error) {
     res.status(500).json({ error: error.message })
