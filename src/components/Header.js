@@ -76,11 +76,11 @@ export default function Header() {
                 </a>
               </li>
 
-              <li className="nav-item">
+             {user && <li className="nav-item">
                 <a href="/locations" className="nav-link">
                   Book a Bike
                 </a>
-              </li>
+              </li>}
              
 
               {adminEmails.includes(user?.email) && (
