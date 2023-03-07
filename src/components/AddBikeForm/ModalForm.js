@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import FormInput from "./FormInput";
 import { BASE_URL } from "@/constants";
 import Head from "next/head";
-import { redirect } from "next/dist/server/api-utils";
+// import { redirect } from "next/dist/server/api-utils";
+import { useRouter } from 'next/router'
 
 const formInputs = [
   "name",
@@ -18,13 +19,13 @@ const formInputs = [
 export default function ModalForm() {
 
   const [imagePublicId, setImagePublicId] = useState();
-
+  const router = useRouter();
   const cloudinaryWidget = () => {
     // create the widget
     const widget = window.cloudinary.createUploadWidget(
       {
         cloudName: "dw9w4uzxk",
-        uploadPreset: "dlciw07h" 
+        uploadPreset: "dlciw07h"
       },
       (error, result) => {
         if (
@@ -40,7 +41,9 @@ export default function ModalForm() {
   };
 
   const submitHandler = (e) => {
-    redirect(`${BASE_URL}/admin/bikes`)
+    // e.preventDefault();
+    // redirect(`${BASE_URL}/admin/bikes`)
+    router.replace(`${BASE_URL}/admin/bikes`)
   }
 
   return (
@@ -66,8 +69,8 @@ export default function ModalForm() {
           >
             {formInputs.map((name, idx) => (
               <FormInput content={name} key={idx} />
-              ))}
-            <FormInput cloudinary={cloudinaryWidget} value={imagePublicId?.url} content={"image"}/>
+            ))}
+            <FormInput cloudinary={cloudinaryWidget} value={imagePublicId?.url} content={"image"} />
             <div className="sm:col-span-2">
               <label
                 for="additionalInfo"

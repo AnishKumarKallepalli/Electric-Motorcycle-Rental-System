@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image';
 
 export default function UserPhoto(props) {
-    const {username, photo} = props;
+  const { username, photo, balance } = props;
   return (
     <>
 
@@ -13,7 +13,7 @@ export default function UserPhoto(props) {
 
         <div>
           <div class="text-indigo-500 md:text-lg font-bold text-center">{username}</div>
-          <p class="text-gray-500 text-sm md:text-base text-center mb-3 md:mb-4">Wallet: ₹5000</p>
+          <p class="text-gray-500 text-sm md:text-base text-center mb-3 md:mb-4">{balance ? <div>Wallet: ₹{balance}</div> : null}</p>
           <button class="inline-block bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded outline-none transition duration-100 px-4 py-1">Add Money</button>
 
         </div>

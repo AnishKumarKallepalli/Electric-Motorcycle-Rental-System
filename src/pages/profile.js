@@ -31,7 +31,7 @@ export default function Profile() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             <div>
               <div className="border rounded-lg p-4">
-                <UserPhoto username={user?.name} photo={user?.picture}></UserPhoto>
+                <UserPhoto username={user?.name} photo={user?.picture} balance={data?.wallet_balance}></UserPhoto>
                 <h2 className="text-gray-800 text-lg lg:text-xl font-bold mb-3"></h2>
 
               </div>

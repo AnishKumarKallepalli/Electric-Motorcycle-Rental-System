@@ -16,7 +16,7 @@ export default function Card({ props }) {
             <div className="d-flex mb-3">
               <span className="cat">Rent Starting at</span>
               <p className="price ml-auto">
-                ₹{props.price} <span>/day</span>
+                ₹{props.pricePerHour * 13} <span>/day</span>
               </p>
             </div>
             <p className="d-flex mb-0 d-block">
@@ -24,7 +24,7 @@ export default function Card({ props }) {
                 Book now
               </a>{" "}
               <a
-                href="car-single.html"
+                href={"/bike-detail/?bike=" + props._id}
                 className="btn btn-secondary py-2 ml-1"
               >
                 Details

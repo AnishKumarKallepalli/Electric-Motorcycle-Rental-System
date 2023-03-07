@@ -12,12 +12,15 @@ async function createUser(req, res) {
 }
 
 async function updateOrCreateuser(req, res) {
+  console.log("updateOrCreateuser", req.body)
   try {
     delete req.body._id;
+    const email = req.body.email;
+    delete req.body.email;
     const user = await User.findOneAndUpdate({
-      email: req.body.email
+      email
     }, req.body, {
-      new: true,
+      // new: true,
       upsert: true
     });
     res.status(201).json(user);
@@ -29,7 +32,7 @@ async function updateOrCreateuser(req, res) {
 async function deleteUser(req, res) {
   try {
     const user = await User.findOneAndDelete({
-      email: req.body.email
+      email: req.body._id
     });
     res.status(200).json(user);
   } catch (error) {
