@@ -1,3 +1,4 @@
+import { BASE_URL } from "@/constants"
 import connectDB from "../../../middleware/mongodb"
 import Bike from "../../../models/Bike"
 import Location from "../../../models/Location"
@@ -14,6 +15,7 @@ async function createBike(req, res) {
         bike: bike._id
       })
     }
+    res.redirect(`${BASE_URL}/admin/bikes`);
     res.status(201).json(bike)
   } catch (error) {
     res.status(500).json({ error: error.message })
