@@ -10,19 +10,21 @@ import "@/styles/jquery.timepicker.css";
 import "@/styles/flaticon.css";
 import "@/styles/icomoon.css";
 import "@/styles/style.css";
+import "@/styles/locations.css"
+
 import Script from "next/script";
 import { useRouter } from 'next/router'
 import "@/styles/global.css"
 
-import {UserProvider} from "@auth0/nextjs-auth0/client";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 import Header from "@/components/Header";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
 
   return (
-    
-      <>
+
+    <>
       <Script src="js/jquery.min.js" strategy="beforeInteractive"></Script>
       <Script
         src="js/jquery-migrate-3.0.1.min.js"
@@ -71,13 +73,13 @@ export default function App({ Component, pageProps }) {
       <Script src="js/google-map.js" strategy="beforeInteractive"></Script>
       <Script src="js/main.js" strategy="beforeInteractive"></Script>
       <Script
-          src="https://widget.Cloudinary.com/v2.0/global/all.js"
-          type="text/javascript"
-        ></Script>
+        src="https://widget.Cloudinary.com/v2.0/global/all.js"
+        type="text/javascript"
+      ></Script>
       <UserProvider>
-      <div className="bg-black py-6 sm:py-8 lg:py-12"><Header /></div>
-        <Component {...pageProps} key={router.asPath}  />
+        <div className="bg-black py-6 sm:py-8 lg:py-12"><Header /></div>
+        <Component {...pageProps} key={router.asPath} />
       </UserProvider>
-      </>
+    </>
   );
 }
