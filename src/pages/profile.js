@@ -1,13 +1,29 @@
+import { BASE_URL } from "@/constants";
 import BikeRating from "@/components/Profile/BikeRating";
 import Header from "@/components/Header";
 import UserPhoto from "@/components/UserPhoto";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function Profile() {
-    const {user} = useUser();
-    
+  const { user } = useUser();
+  const [data, setData] = React.useState(null);
+
+  async function getUserInfo() {
+    if (!user?.email) return;
+    const res = await fetch(`/api/users/${user.email}`);
+    const data = await res.json();
+    console.log("The user is", data);
+    setData(data);
+  }
+
+  useEffect(() => {
+    console.log("The user is", user);
+    //fetch user info from backend
+    getUserInfo();
+  }, [user]);
+
   return (
     <>
       <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -22,6 +38,23 @@ export default function Profile() {
             </div>
 
             <div className="lg:col-span-2">
+              {data?.current_ride?.start_time ? <><div className="border-b pb-4 md:pb-6">
+                <h1 className="text-gray-800 text-xl lg:text-xl font-bold">
+                  Current Ride
+                </h1>
+              </div>
+
+                <div className="divide-y">
+                  <BikeRating
+                    rating={0}
+                    place={data.current_ride.start_location}
+                    date={data.current_ride.start_time}
+                    cost={data.current_ride.cost}
+                    bike={data.current_ride.bike.name}
+                    hours={"4"}
+                  />
+                </div></> : null}
+
               <div className="border-b pb-4 md:pb-6">
                 <h1 className="text-gray-800 text-xl lg:text-xl font-bold">
                   Previous Bookings
@@ -61,4 +94,12 @@ export default function Profile() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  // Fetch data from external API
+  const res = await fetch(`${BASE_URL}/api/users`)
+  const listofbikes = await res.json()
+  // Pass data to the page via props
+  return { props: { listofbikes } }
 }

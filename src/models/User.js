@@ -15,7 +15,7 @@ const user = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
+    // required: true,
   },
   ride_history: {
     type: Array,
@@ -23,9 +23,11 @@ const user = new mongoose.Schema({
   },
   current_ride: {
     //bike is another model
-    bike: mongoose.Schema.Types.ObjectId,
+    bike: { type: mongoose.Schema.Types.ObjectId, ref: 'Bike' },
     start_time: Date,
     start_location: String,
     cost: Number,
   },
 })
+
+export default mongoose.models.User || mongoose.model("User", user)
