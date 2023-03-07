@@ -75,6 +75,12 @@ export default function Header() {
                   About
                 </a>
               </li>
+
+              <li className="nav-item">
+                <a href="/locations" className="nav-link">
+                  Book a Bike
+                </a>
+              </li>
              
 
               {adminEmails.includes(user?.email) && (
