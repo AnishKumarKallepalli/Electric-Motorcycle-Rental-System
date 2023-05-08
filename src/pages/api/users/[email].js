@@ -13,6 +13,12 @@ async function getOrCreateUser(req, res) {
       user = await User.create({ email, ...req.body });
       return res.status(201).json(user);
     }
+    // populate the ride_history bikes
+    const ride_history = await Bike.find({ _id: { $in: user.ride_history.map(r => r.bike) } });
+    // user.ride_history = ride_history;
+    for (let i = 0; i < (user.ride_history?.length ?? 0); i++) {
+      user.ride_history[i].bike = ride_history[i];
+    }
     const bike = await Bike.findOne({ _id: user.current_ride.bike });
     if (bike) {
       console.log(bike)

@@ -62,6 +62,18 @@ export default function Profile() {
               </div>
 
               <div className="divide-y">
+                {data?.ride_history?.map((ride) => (
+
+                  <BikeRating
+                    rating={0}
+                    place={ride.start_location}
+                    date={ride.start_time}
+                    cost={ride.cost}
+                    bike={ride.bike.name}
+                    hours={"1"}
+                  />
+                ))
+                }
                 <BikeRating
                   rating={5}
                   place={"Jubilee Hills"}
