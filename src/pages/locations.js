@@ -49,7 +49,7 @@ export default function LocationPage({ locations }) {
         bike: location.bike._id,
         start_time: new Date(time),
         start_location: location.address,
-        cost: location.bike.price,
+        cost: location.bike.pricePerHour,
       };
       axios.put(`${BASE_URL}/api/users`, {
         email,

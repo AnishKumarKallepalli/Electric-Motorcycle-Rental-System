@@ -51,7 +51,7 @@ export default function Profile() {
                     date={data.current_ride.start_time}
                     cost={data.current_ride.cost}
                     bike={data.current_ride.bike.name}
-                    hours={"4"}
+                    hours={data.current_ride.cost / data.current_ride.bike.pricePerHour}
                   />
                 </div></> : null}
 
